@@ -122,13 +122,6 @@ def threshold_it_2():
       
         threshold_tx_transfer = b.create_transaction(pubKeys, pubNew, txn, 'TRANSFER')
 
-        privKeys = privKeys.split("_")
-        txn  = {"cid": cid, "txid": txID}
-
-        #this is the subfulfillment list. we use pubKeys initially as it has the same size.
-        subfulfillments = pubKeys
-
-        threshold_tx_transfer = b.create_transaction(pubKeys, pubNew, txn, 'TRANSFER')
 
         threshold_tx = b.get_transaction(txID)
         threshold_fulfillment = cc.Fulfillment.from_json(threshold_tx['transaction']['conditions'][0]['condition']['details'])
